@@ -14,22 +14,24 @@ jobs:
     runs-on: ubuntu-latest
     name: Build and Deploy Job
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v3
 
-      # 👇 Add this step
+      # ✅ Add this step
       - name: Use Node.js 20
         uses: actions/setup-node@v3
         with:
-          node-version: 20
+          node-version: '20.19.0'
 
       - name: Build And Deploy
+        id: builddeploy
         uses: Azure/static-web-apps-deploy@v1
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN }}
           repo_token: ${{ secrets.GITHUB_TOKEN }}
           action: "upload"
-          app_location: "./reactapp2.client"
+          app_location: "reactapp2.client" # adjust if your package.json is inside a folder
           output_location: "dist"
+
 
 
   close_pull_request_job:
@@ -43,4 +45,5 @@ jobs:
         with:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_KIND_POND_045D93300 }}
           action: "close"
+
 
