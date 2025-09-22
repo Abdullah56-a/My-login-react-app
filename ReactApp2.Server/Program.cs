@@ -9,7 +9,7 @@ builder.Services.AddCors(options =>
                 "http://localhost:5173",     // Vite default
                 "https://localhost:5173",    // sometimes https
                 "http://127.0.0.1:5173",     // another Vite variation
-                "https://localhost:51332"    // IIS Express frontend
+                "https://kind-pond-045d93300.2.azurestaticapps.net"    // IIS Express frontend
             )
             .AllowAnyHeader()
             .AllowAnyMethod()
