@@ -9,7 +9,8 @@ builder.Services.AddCors(options =>
                 "http://localhost:5173",     // Vite default
                 "https://localhost:5173",    // sometimes https
                 "http://127.0.0.1:5173",     // another Vite variation
-                "https://kind-pond-045d93300.2.azurestaticapps.net"    // IIS Express frontend
+                "https://localhost:51332",
+                "https://kind-pond-045d93300.2.azurestaticapps.net" // 👈 Azure Static Web App// IIS Express frontend
             )
             .AllowAnyHeader()
             .AllowAnyMethod()
@@ -23,15 +24,21 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-app.UseCors("AllowReactApp");
-
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
 }
 
+
 app.UseHttpsRedirection();
+
+// ✅ Put CORS here (after HttpsRedirection, before Authorization)
+app.UseCors("AllowReactApp");
+
 app.UseAuthorization();
+
 app.MapControllers();
+
 app.Run();
+
