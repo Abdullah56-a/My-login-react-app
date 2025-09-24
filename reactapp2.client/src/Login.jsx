@@ -8,7 +8,8 @@ function Login() {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch("https://localhost:7120/api/auth/login", {
+            const response = await fetch("https://reactapp2server20250921160511-beauebgsfybfeehb.eastasia-01.azurewebsites.net/api/auth/login
+", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({ email, password }),
