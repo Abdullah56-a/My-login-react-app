@@ -1,4 +1,4 @@
-﻿import React, { useState } from "react";
+import React, { useState } from "react";
 
 function Login() {
     const [email, setEmail] = useState("");
@@ -8,12 +8,14 @@ function Login() {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const response = await fetch("https://reactapp2server20250921160511-beauebgsfybfeehb.eastasia-01.azurewebsites.net/api/auth/login
-", {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({ email, password }),
-            });
+            const response = await fetch(
+                "https://reactapp2server20250921160511-beauebgsfybfeehb.eastasia-01.azurewebsites.net/api/auth/login",
+                {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ email, password }),
+                }
+            );
 
             if (response.ok) {
                 const data = await response.json();
