@@ -73,17 +73,19 @@ function Login() {
 const styles = {
     container: {
         height: "100vh",
+        width: "100vw",
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        background: "linear-gradient(to right, #6a11cb, #2575fc)", // Theme bg
+        background: "linear-gradient(to right, #6a11cb, #2575fc)", // purple-blue gradient
     },
     card: {
         background: "#fff",
-        padding: "30px",
+        padding: "40px",
         borderRadius: "12px",
-        boxShadow: "0px 4px 12px rgba(0,0,0,0.1)",
-        width: "320px",
+        boxShadow: "0px 4px 20px rgba(0,0,0,0.15)",
+        width: "100%",
+        maxWidth: "400px", // stays centered and not too wide
         textAlign: "center",
     },
     title: {
@@ -92,10 +94,11 @@ const styles = {
     },
     input: {
         width: "100%",
-        padding: "10px",
-        margin: "8px 0",
+        padding: "12px",
+        margin: "10px 0",
         borderRadius: "6px",
         border: "1px solid #ccc",
+        fontSize: "14px",
     },
     button: {
         width: "100%",
@@ -107,10 +110,12 @@ const styles = {
         borderRadius: "6px",
         cursor: "pointer",
         marginTop: "10px",
+        fontSize: "15px",
     },
     message: {
         marginTop: "15px",
         fontWeight: "bold",
+        fontSize: "14px",
     },
 };
 
